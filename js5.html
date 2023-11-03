@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+    <script type="text/javascript">
+        function validate() {
+            var name = document.f1.name.value;
+            var email = document.f1.email.value;
+            var website = document.f1.website.value;
+            var message = document.f1.message.value;
+            var status = true;
+
+            if (name === "") {
+                document.getElementById("namelocation").innerHTML = "Please enter your name";
+                status = false;
+            } else {
+                document.getElementById("namelocation").innerHTML = "";
+            }
+
+            if (email === "") {
+                document.getElementById("emaillocation").innerHTML = "A valid email address is required.";
+                status = false;
+            } else {
+                document.getElementById("emaillocation").innerHTML = "";
+            }
+
+            if (website === "") {
+                document.getElementById("websitelocation").innerHTML = "A valid URL is required";
+                status = false;
+            } else {
+                document.getElementById("websitelocation").innerHTML = "";
+            }
+
+            if (message === "") {
+                document.getElementById("messagelocation").innerHTML = "This field is required.";
+                status = false;
+            } else {
+                document.getElementById("messagelocation").innerHTML = "";
+            }
+
+            return status;
+        }
+    </script>
+</head>
+<body>
+    <form name="f1" action="#" onsubmit="return validate()">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" />
+                    <span id="namelocation" style="color:red"></span></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" />
+                    <span id="emaillocation" style="color:red"></span></td>
+            </tr>
+            <tr>
+                <td>Website:</td>
+                <td><input type="url" name="website" />
+                    <span id="websitelocation" style="color:red"></span></td>
+            </tr>
+            <tr>
+                <td>Message:</td>
+                <td><textarea id="message" name="message"></textarea>
+                    <span id="messagelocation" style="color:red"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
